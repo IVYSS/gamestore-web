@@ -2,134 +2,108 @@
 {% load static %}
 {% block content %}
 <style>
-    #search{
-        float: right;
-        margin-top: 2em;
-        margin-right: 2em;
-    }
+  #search {
+    float: right;
+    margin-top: 2em;
+    margin-right: 2em;
+  }
 </style>
-    <body>
-    <div class="container-md">
-        <input class="form-control" type="text" placeholder="Search" aria-label="Search" id="search">   
+
+<body>
+  <div class="container-md">
+    <input class="form-control" type="text" placeholder="Search" aria-label="Search" id="search">
+  </div>
+  <br><br><br>
+  <br>
+  <!-- --------------------------------------------------------------------------------------- -->
+  <div class="container-fluid">
+    <div class="row">
+      {% for gametype in game_type %}
+      <input type="checkbox" name="" id="" class="checkbox1 col-1">{{ gametype.game_name }}</input>
+      {% endfor %}
     </div>
-    <br>
-    <div class="container-md">
-        <div class="row col-12">
-            <div class="col-10">
-                <p>{{ game_type }}</p>
-            </div>
-            <div class="col-2" style="float: right;">
-                <a href="#">See more...</a>
-            </div>
-        </div>
-        <div class="row col-12">
-            <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
+    <div class="row">
+      <div class="col-10">
+        <p>{{ game_type }}</p>
+      </div>
 
-              <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
+      <div class="col-2" style="float: right;">
+        <a href="#">See more...</a>
+      </div>
 
-              <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        
-        <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
+    </div>
+  </div>
+  <hr>
+  <!-- menu --------------------------------------- -->
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-3">
+        <div class="card" style="width: 18rem;margin-left: 10px;">
+          <img class="card-img-top"
+            src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
+            alt="Card image cap">
+          <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        </div>
-    </div>
-    <hr>
-    {% comment %} <div class="container-md">
-        <div class="row col-12">
-            <div class="col-10">
-                <p>{{ mod.1 }}</p>
-            </div>
-            <div class="col-2" style="float: right;">
-                <a href="#">See more...</a>
-            </div>
-        </div>
-       
-        <div class="row col-12">
-            <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-
-              <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-
-              <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        
-        <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
           </div>
-        <div class="card col-2" style="width: 18rem;margin-right: 2em;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
+        </div>
+      </div>
+      <!--  -->
+      <div class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top"
+            src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
+            alt="Card image cap">
+          <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
+      </div>
+      <!--  -->
+      <div class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top"
+            src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
         </div>
-    </div>
-     {% endcomment %}
-<br><br>
-  {% comment %} {% for type in game_type %}
+      </div>
 
-    <p>{{ type }}</p>
-  {% endfor %} {% endcomment %}
-  <p>{{ game_type }}</p>
+      <div class="col-3">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top"
+            src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <!-- --------------------------------------------------------------------------------------- -->
+
+  {% for i in game_type %}
+    <p>{{ i.type_name }}</p>
+  {% endfor %}
+
 </body>
 
 {% endblock content %}

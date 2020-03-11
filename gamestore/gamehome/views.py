@@ -8,11 +8,15 @@ def gamehome(request):
     mod = ['Action', 'Adventure']
     return render(request ,'gamehome/game.html', context={
         'mod' : mod,
-        
     })
+
 def showgame(request):
     game_type = Game_type.objects.all()
+    # game_type = Game_type.objects.all()
 
     return render(request, 'gamehome/game.html',context={
         'game_type' : game_type,
     })
+
+def test(request):
+    return render(request, 'gamehome/showgame.html')

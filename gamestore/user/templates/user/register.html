@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+<body>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        <input type="text" name="username">username</input>
+        <input type="text" name="password">password</input>
+        <input type="text" name="c_password">Confime Password</input>
+        <label for="" name="error"> {{ error }}</label>
+         <input type="text" name="first_name">first_name</input>
+        <input type="text" name="last_name">last_name</input>
+        <input type="text" name="email">email</input>
+
+        <input type="submit" value="email" >
+    </from>
+</body>
+{% endblock content %}
