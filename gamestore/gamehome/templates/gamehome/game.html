@@ -10,99 +10,164 @@
 </style>
 
 <body>
-  <div class="container-md">
+  <form method="POST" action="{% url 'showgame' %}">
+        {% csrf_token %}
+      <div class="container-md">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search" id="search" name="searchinput">
+        <br><br>
+      </div><br>
+  </form>
+
+  {% for g in show_game %}
+    {{ g }}
+  {% endfor %}
+{% comment %} <div class="container-md">
     <input class="form-control" type="text" placeholder="Search" aria-label="Search" id="search">
   </div>
   <br><br><br>
   <br>
-  <!-- --------------------------------------------------------------------------------------- -->
   <div class="container-fluid">
     <div class="row">
-      {% for gametype in game_type %}
-      <input type="checkbox" name="" id="" class="checkbox1 col-1">{{ gametype.game_name }}</input>
+      {% for type in game_type %}
+        <input type="checkbox" name="" id="" class="checkbox1 col-1">{{ type.type_name }}</input>
       {% endfor %}
     </div>
     <div class="row">
-      <div class="col-10">
-        <p>{{ game_type }}</p>
-      </div>
+      <div class="col-10">Action
+        </div>
 
       <div class="col-2" style="float: right;">
-        <a href="#">See more...</a>
+        <a href="{% url 'show_all_detail' show_all_detail=1 %}" >See more...</a>
       </div>
 
     </div>
   </div>
   <hr>
-  <!-- menu --------------------------------------- -->
-  <div class="container-lg">
+
+  <div class="container-lg" style="display: inline-block;">
     <div class="row">
-      <div class="col-3">
-        <div class="card" style="width: 18rem;margin-left: 10px;">
-          <img class="card-img-top"
-            src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <!--  -->
-      <div class="col-3">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <!--  -->
-      <div class="col-3">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-3">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top"
-            src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+      <br>
+      <div class="row">
+      {% for num in action %}
+          <div class="col" style="height: 300px;">
+            <div class="card" style="height: 300px;">
+              <img class="card-img-top"
+                src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
+                alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ num.name }}</h5>
+                <p class="card-text" maxlength="50"> {{ num.developer }}</p>
+                <a href="{% url 'show_all_detail' show_all_detail=num.game_id %}" class="btn btn-primary">More</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-
+      {% endfor %}
+    </div>
     </div>
 
   </div>
+  <br><br>
 
-  <!-- --------------------------------------------------------------------------------------- -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-10">RPG
+        </div>
 
-  {% for i in game_type %}
-    <p>{{ i.type_name }}</p>
-  {% endfor %}
+      <div class="col-2" style="float: right;">
+        <a href="{% url 'show_all_detail' show_all_detail=2 %}" >See more...</a>
+      </div>
+
+    </div>
+  </div>
+  <hr>
+
+  <div class="container-lg" style="display: inline-block;">
+    <div class="row">
+      <br>
+      <div class="row">
+      {% for num in action %}
+          <div class="col" style="height: 300px;">
+            <div class="card" style="height: 300px;">
+              <img class="card-img-top"
+                src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
+                alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ num.name }}</h5>
+                <p class="card-text" maxlength="50"> {{ num.developer }}</p>
+                <a href="{% url 'show_all_detail' show_all_detail=num.game_id %}" class="btn btn-primary">More</a>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+    </div>
+
+  </div>
+<br><br><br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-10">Sport
+        </div>
+
+      <div class="col-2" style="float: right;">
+        <a href="{% url 'show_all_detail' show_all_detail=3 %}" >See more...</a>
+      </div>
+
+    </div>
+  </div>
+  <hr>
+
+  <div class="container-lg" style="display: inline-block;">
+    <div class="row">
+
+      <br>
+      <div class="row">
+      {% for num in action %}
+          <div class="col" style="height: 300px;">
+            <div class="card" style="height: 300px;">
+              <img class="card-img-top"
+                src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
+                alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ num.name }}</h5>
+                <p class="card-text" maxlength="50"> {{ num.developer }}</p>
+                <a href="{% url 'show_all_detail' show_all_detail=num.game_id %}" class="btn btn-primary">More</a>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+    </div> {% endcomment %}
+
+  </div>
+  <div class="container-lg">
+      {% for type in game_type %}
+        {{ type.type_name }}
+        
+        <a href="{% url 'seemore' seemore=type.type_id %}" style="float: right;">See more...</a>
+        <hr>
+        <div class="row">
+          {% for i in game %}
+            {% if type.type_id == i.game_type_id %}
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ i.name }}</h5>
+              <p class="card-text">{{ i.developer }}</p>
+              <a href="{% url 'detail' detail=i.game_type_id %}" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          <br>
+          {% endif %}
+          {% endfor %}
+        </div>
+          {% endfor %}
+        
+
+
+  </div>
+  
 
 </body>
 

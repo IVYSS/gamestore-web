@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+{% comment %} <div class="container-lg" style="display: inline-block;">
+    <div class="row">
+      <!--  -->
+      <br>
+      <div class="row">
+    {% for i in list_game %}
+        <div class="col">
+            <div class="card">
+              <img class="card-img-top"
+                src="https://img-ha.mthcdn.com/hAQpLUA5_zwl_TezL0Q9rB3B_ME=/800x450/smart/admin.mthai.com/storage/uploads/2019/07/picpost-1_03-Jul-2019_17-05.jpeg"
+                alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ i.name }}</h5>
+                <p class="card-text" maxlength="50"> {{ i.developer }}</p>
+              </div>
+            </div>
+        </div>  
+        </div>
+    {% endfor %}
+</div> {% endcomment %}
+<div class="container">
+  <div class="row">
+  {% for game in list_game %}
+  
+    <div class="col-3 m-3 ml-md-0">
+      <div class="card m-md-1" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ game.name }}</h5>
+          <p class="card-text">{{ game.developer }}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+  </div>
+    
+  {% endfor %}
+  </div>
+</div>
+{% endblock content %}

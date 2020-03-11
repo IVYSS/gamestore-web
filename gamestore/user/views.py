@@ -4,6 +4,7 @@ from django.shortcuts import render,redirect
 from astroid import objects
 from django.contrib.auth import authenticate, login, logout
 from gamehome.models import User
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def my_login(request):
     context = {}
@@ -16,7 +17,7 @@ def my_login(request):
 
         if user:
             login(request, user)
-            return redirect('register')
+            return redirect('showgame')
         else:
             context['username'] = username
             context['password'] = password
@@ -24,6 +25,10 @@ def my_login(request):
 
     return render(request, template_name='user/login.html', context=context)
 
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('login')
 
 def register(request):
     if request.method == 'POST':
@@ -38,7 +43,8 @@ def register(request):
             r.save()
             return redirect('login')
         # else:
-            
+        r.save()
+        
         #     error = 'Wrong username or password!'
         
     return render(request, 'user/register.html')
